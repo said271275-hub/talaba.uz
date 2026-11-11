@@ -607,3 +607,79 @@ body {
   padding-top: 30px;
   font-size: 13px;
 }
+/* ===== JS bilan qo'shilgan elementlar uchun uslublar ===== */
+.header.scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); }
+.nav-item.active { color: var(--primary); }
+
+/* Forma xatolari */
+.input-group.has-toggle { position: relative; }
+.field-error { display: block; min-height: 0; margin-top: 6px; color: #dc2626; font-size: 13px; }
+.input-group.has-error input { border-color: #dc2626; }
+.toggle-password {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.password-strength { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.password-strength .bar {
+    flex: 1;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+.password-strength .bar::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    background: #dc2626;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+.password-strength .bar[data-level="1"]::after { width: 25%; background: #dc2626; }
+.password-strength .bar[data-level="2"]::after { width: 50%; background: #f59e0b; }
+.password-strength .bar[data-level="3"]::after { width: 75%; background: #84cc16; }
+.password-strength .bar[data-level="4"]::after { width: 100%; background: #16a34a; }
+.password-strength .label { min-width: 80px; font-size: 12px; color: var(--text-muted); }
+.form-success {
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Tepaga qaytish tugmasi */
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, background 0.3s ease;
+    z-index: 1500;
+}
+.back-to-top.show { opacity: 1; pointer-events: auto; }
+.back-to-top:hover { background: var(--primary-dark); }
+
+/* Ko'ringanda paydo bo'lish (hover transform'iga tegmaydi) */
+.reveal { opacity: 0; translate: 0 30px; transition: opacity 0.6s ease, translate 0.6s ease; }
+.reveal.visible { opacity: 1; translate: 0 0; }
